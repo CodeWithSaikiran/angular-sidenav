@@ -1,0 +1,7 @@
+echo "📦 Installing dependencies..."
+npm install
+
+echo "🔨 Building Angular app..."
+npm run build -- --configuration=production
+
+echo "📁 Build completed. Moving files..."
