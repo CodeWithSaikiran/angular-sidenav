@@ -1,0 +1,20 @@
+# Step 1: Install dependencies
+npm install
+
+# Step 2: Build Angular app
+npm run build -- --configuration=production
+
+# Step 3: Find dist folder (Angular 13+)
+cd dist
+
+# Step 4: Get project folder name dynamically
+APP_NAME=$(ls)
+
+# Step 5: Deploy to Nginx
+sudo rm -rf /usr/share/nginx/html/*
+sudo cp -r $APP_NAME/* /usr/share/nginx/html/
+
+# Step 6: Restart Nginx
+sudo systemctl restart nginx
+
+echo "Deployment Successful 🚀"
